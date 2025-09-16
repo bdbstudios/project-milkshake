@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://b42wo4b8k4jk8"]
+
+[ext_resource type="Script" uid="uid://cpvckx6tght8j" path="res://actors/base/components/movement/move.gd" id="1_dthho"]
+[ext_resource type="Script" uid="uid://cw168botxwwxr" path="res://actors/player/camera_controller.gd" id="1_ehwws"]
+[ext_resource type="Script" uid="uid://dq8r4gt2k62ln" path="res://actors/player/player.gd" id="1_jg3c0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ehwws"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gv3i3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ehwws"]
+radius = 0.07
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_jg3c0")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="MoveComponent" type="Node" parent="Components" node_paths=PackedStringArray("mesh_root")]
+script = ExtResource("1_dthho")
+mesh_root = NodePath("../../Visuals")
+metadata/_custom_type_script = "uid://cpvckx6tght8j"
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ehwws")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="CapsuleMesh" type="MeshInstance3D" parent="Visuals"]
+mesh = SubResource("CapsuleMesh_gv3i3")
+skeleton = NodePath("../..")
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("1_ehwws")
+
+[node name="Yaw" type="Node3D" parent="Camera"]
+
+[node name="Pitch" type="Node3D" parent="Camera/Yaw"]
+transform = Transform3D(1, 0, 0, 0, 0.951057, -0.309017, 0, 0.309017, 0.951057, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera/Yaw/Pitch"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.5, 0, 0)
+shape = SubResource("SphereShape3D_ehwws")
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="Camera/Yaw/Pitch/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
