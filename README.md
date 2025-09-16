@@ -13,8 +13,8 @@
   <br>
 </p>
 
-# Project Milkshake
+# About the game
 
-A rogue-like/lite videogame inspired by Rampage where the player gains points by causing destruction to the environment.
+A rogue-like videogame inspired by Rampage where the player gains points by causing destruction to the environment.
 
 ## Developed by BDB Studios - 2025
