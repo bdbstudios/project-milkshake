@@ -17,10 +17,10 @@ class_name MovementComponent extends Node
 @export var jump_force: float = 6.0
 
 ## The root node of the mesh that should rotate to face the movement direction.
-@export var mesh_reference: Node3D
+@export var model_reference: Node3D
 
 ## The speed at which the mesh rotates to face the movement direction.
-@export var mesh_rotation_speed: float = 8.0
+@export var model_rotation_speed: float = 8.0
 
 ## The gravity value retrieved from project settings.
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -48,10 +48,10 @@ enum MovementSpeed {
 
 
 ## Called when the node enters the scene tree.
-## Validates that the owner is a CharacterBody3D and that mesh_reference is assigned.
+## Validates that the owner is a CharacterBody3D and that model_reference is assigned.
 func _ready() -> void:
 	assert(owner is CharacterBody3D, "Owner is not of type CharacterBody3D")
-	assert(mesh_reference, "No mesh reference was assigned")
+	assert(model_reference, "No model reference was assigned")
 
 	target_speed = walking_speed
 
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	# Rotate mesh to face movement direction
 	if direction.length() > 0:
 		var movement_angle = atan2(direction.x, direction.z)
-		mesh_reference.rotation.y = lerp_angle(mesh_reference.rotation.y, movement_angle, mesh_rotation_speed * delta)
+		model_reference.rotation.y = lerp_angle(model_reference.rotation.y, movement_angle, model_rotation_speed * delta)
 
 
 ## Checks if the entity is currently moving.
