@@ -4,7 +4,6 @@ extends Node3D
 @onready var PitchNode: Node3D = $Yaw/Pitch
 @onready var CameraNode: Camera3D = $Yaw/Pitch/SpringArm3D/Camera3D
 
-
 var yaw: float = 0
 var pitch: float = 0
 

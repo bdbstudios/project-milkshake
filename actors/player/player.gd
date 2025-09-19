@@ -1,29 +1,41 @@
-## The player character that extends CharacterBody3D.
-##
-## Coordinates between movement components to handle player input and movement physics.
 class_name Player extends CharacterBody3D
 
-## Reference to the MovementComponent that handles movement physics.
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 
-## Reference to the MovementInputComponent that processes player input specific for movement.
-@onready var movement_input_component: MovementInputComponent = $Components/MovementInputComponent
+@onready var player_input_component: PlayerInputComponent = $Components/PlayerInputComponent
+
+@onready var state_machine: StateMachine = $StateMachine
+
+@onready var yaw: Node3D = $Camera/Yaw
 
 @onready var animation_tree: AnimationTree = $Model/AnimationTree
+@onready var animation_playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
-var is_in_air: bool = false
+@onready var current_state_label: Label = $CurrentState
 
-## Called when the node enters the scene tree.
-## Connects signals from the input component to the movement component.
 func _ready() -> void:
-	movement_input_component.jump.connect(movement_component._on_jump_input)
-	movement_input_component.speed_change.connect(movement_component._on_speed_change)
-	movement_input_component.direction_change.connect(movement_component._on_direction_change)
+	state_machine.init(self)
 	
-	movement_input_component.jump.connect(_on_jump_input)
+	print(animation_playback)
+	
+	player_input_component.direction_change.connect(_on_direction_change)
+	player_input_component.jump.connect(_on_jump_input)
 
-func _process(_delta: float) -> void:
-	animation_tree.set("parameters/Movement/blend_position", movement_component.get_movement_state())
+func _process(delta: float) -> void:
+	state_machine.update(delta)
+
+func _physics_process(delta: float) -> void:
+	state_machine.physics_update(delta)
+	
+	#	TODO: Fix the state machine changing states all the time
+	#	it should not change state to "Walk" when "Jump" is happening for example
+	state_machine.change_state(movement_component.get_movement_state())
+	current_state_label.text = "STATE: " + state_machine.current_state.name.to_lower()
+
+func _on_direction_change(new_direction: Vector3) -> void:
+	movement_component._on_direction_change(new_direction.rotated(Vector3.UP, yaw.rotation.y))
 
 func _on_jump_input() -> void:
-	animation_tree.set("parameters/conditions/jump", true)
+	movement_component._on_jump_input()
+
+	state_machine.change_state("jump")
