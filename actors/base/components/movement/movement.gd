@@ -80,11 +80,28 @@ func _physics_process(delta: float) -> void:
 		model_reference.rotation.y = lerp_angle(model_reference.rotation.y, movement_angle, model_rotation_speed * delta)
 
 
-## Checks if the entity is currently moving.
+## Calculates the current movement state based on velocity.
 ##
-## @returns: True if the entity is moving in any horizontal direction, false otherwise.
-func is_movement_happening() -> bool:
-	return abs(direction.x) > 0 or abs(direction.z) > 0
+## Returns a value between -1 and 1 where:
+##   -1: idle
+##    0: walking
+##    1: running
+##
+## @returns: A float representing the movement state.
+func get_movement_state() -> float:
+	# Get horizontal velocity (ignore vertical movement)
+	var horizontal_velocity = Vector2(owner.velocity.x, owner.velocity.z)
+	var speed = horizontal_velocity.length()
+
+	# Normalize speed relative to walking and running speeds
+	if speed <= 0.1:  # Small threshold to account for floating point imprecision
+		return -1.0  # Idle
+	elif speed <= walking_speed:
+		# Map from [0.1, walking_speed] to [-1, 0]
+		return remap(speed, 0.1, walking_speed, -1.0, 0.0)
+	else:
+		# Map from [walking_speed, running_speed] to [0, 0.6]
+		return remap(speed, walking_speed, running_speed, 0.0, 1.0)
 
 
 ## Handles jump input by applying vertical force.

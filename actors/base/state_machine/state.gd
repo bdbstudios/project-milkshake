@@ -1,6 +1,8 @@
 class_name State extends Node
 
+
 var state_machine: StateMachine
+var character_body: CharacterBody3D
 
 func enter() -> void:
 	pass

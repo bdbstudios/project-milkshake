@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cw168botxwwxr" path="res://actors/player/camera_controller.gd" id="1_ehwws"]
 [ext_resource type="Script" uid="uid://dq8r4gt2k62ln" path="res://actors/player/player.gd" id="1_jg3c0"]
-[ext_resource type="Script" uid="uid://cpvckx6tght8j" path="res://actors/base/components/movement/movement.gd" id="2_flecp"]
-[ext_resource type="Script" uid="uid://bxuwgawcus7ah" path="res://actors/base/components/movement/input.gd" id="3_flecp"]
 [ext_resource type="PackedScene" uid="uid://6t0kb7upxwri" path="res://actors/player/Player Model.tscn" id="4_c51xo"]
+[ext_resource type="Script" uid="uid://cpvckx6tght8j" path="res://actors/base/components/movement/movement.gd" id="4_svriy"]
+[ext_resource type="Script" uid="uid://bxuwgawcus7ah" path="res://actors/base/components/movement/input.gd" id="5_fd065"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ehwws"]
 radius = 0.6
@@ -17,24 +17,21 @@ radius = 0.07
 collision_layer = 0
 script = ExtResource("1_jg3c0")
 
-[node name="Components" type="Node" parent="."]
-
-[node name="MovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("model_reference")]
-script = ExtResource("2_flecp")
-model_reference = NodePath("../../Model")
-metadata/_custom_type_script = "uid://cpvckx6tght8j"
-
-[node name="MovementInputComponent" type="Node" parent="Components" node_paths=PackedStringArray("yaw_reference")]
-script = ExtResource("3_flecp")
-yaw_reference = NodePath("../../Camera/Yaw")
-metadata/_custom_type_script = "uid://bxuwgawcus7ah"
-
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_ehwws")
 
 [node name="Model" parent="." instance=ExtResource("4_c51xo")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Model/character-male-e" index="0"]
+bones/0/position = Vector3(0, 2.6761883e-05, 0)
+bones/1/rotation = Quaternion(-0.0002066116, 0, 0, 1)
+bones/2/rotation = Quaternion(0.0002066116, 0, 0, 1)
+bones/3/rotation = Quaternion(-0.006268848, -8.528711e-05, 5.3466243e-07, 0.9999804)
+bones/4/rotation = Quaternion(3.5796365e-05, 0.0002561258, -0.37655905, 0.9263926)
+bones/5/rotation = Quaternion(-3.5796365e-05, 0.0002561258, 0.37655905, 0.9263926)
+bones/6/rotation = Quaternion(0, 0.0063257064, 0, 0.99998003)
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -52,3 +49,17 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera/Yaw/Pitch/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="Components" type="Node" parent="."]
+
+[node name="MovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("model_reference")]
+script = ExtResource("4_svriy")
+model_reference = NodePath("../../Model")
+metadata/_custom_type_script = "uid://cpvckx6tght8j"
+
+[node name="MovementInputComponent" type="Node" parent="Components" node_paths=PackedStringArray("yaw_reference")]
+script = ExtResource("5_fd065")
+yaw_reference = NodePath("../../Camera/Yaw")
+metadata/_custom_type_script = "uid://bxuwgawcus7ah"
+
+[editable path="Model"]
