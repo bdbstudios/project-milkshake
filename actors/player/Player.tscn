@@ -1,15 +1,16 @@
-[gd_scene load_steps=77 format=4 uid="uid://b42wo4b8k4jk8"]
+[gd_scene load_steps=78 format=4 uid="uid://b42wo4b8k4jk8"]
 
 [ext_resource type="Script" uid="uid://cw168botxwwxr" path="res://actors/player/camera_controller.gd" id="1_ehwws"]
 [ext_resource type="Script" uid="uid://dq8r4gt2k62ln" path="res://actors/player/player.gd" id="1_jg3c0"]
 [ext_resource type="Texture2D" uid="uid://dguctepdxp6c7" path="res://actors/player/assets/models/textures/colormap.png" id="3_0uenp"]
 [ext_resource type="Script" uid="uid://cpvckx6tght8j" path="res://actors/base/components/movement.gd" id="4_svriy"]
-[ext_resource type="Script" uid="uid://bxuwgawcus7ah" path="res://actors/base/components/player_input.gd" id="5_c51xo"]
 [ext_resource type="Script" uid="uid://bntag180xlw4a" path="res://actors/base/state_machine/state_machine.gd" id="6_svriy"]
 [ext_resource type="Script" uid="uid://820psh2osmwj" path="res://actors/player/states/idle.gd" id="7_fd065"]
 [ext_resource type="Script" uid="uid://df8bmcuehoysb" path="res://actors/player/states/walk.gd" id="8_0uenp"]
 [ext_resource type="Script" uid="uid://d3tt2cpwbh2qw" path="res://actors/player/states/jump.gd" id="9_ljiph"]
 [ext_resource type="Script" uid="uid://cfg76sjin25wh" path="res://actors/player/states/run.gd" id="10_e2ar7"]
+[ext_resource type="Script" uid="uid://dtjojttiutr06" path="res://actors/player/states/light_attack.gd" id="11_f4bib"]
+[ext_resource type="Script" uid="uid://pbw404wf1vjj" path="res://actors/player/states/heavy_attack.gd" id="12_vqe8n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ehwws"]
 radius = 0.6
@@ -2815,7 +2816,7 @@ states/Run/position = Vector2(448, 243)
 states/Walk/node = SubResource("AnimationNodeAnimation_rgecr")
 states/Walk/position = Vector2(326, 170)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_53vko"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_4dt07"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_d1nlb"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_rs472"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_co67k"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_ljdmg"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_vswm3"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ecdlf"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_ir0ww"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_fbkqc"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_evhj0"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_rcv4n"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_veq22"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_cotnb"), "Fall", "Walk", SubResource("AnimationNodeStateMachineTransition_xc54d"), "Run", "Fall", SubResource("AnimationNodeStateMachineTransition_4hd5g"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_q23po"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_5514u"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_gr8wo"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_ty6vm"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_y27vs")]
-graph_offset = Vector2(-378, 113)
+graph_offset = Vector2(-362, 76)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 0
@@ -2874,28 +2875,28 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4438228e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.4438228e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(0.0006561349, 0, 0, 0.9999999)
+bones/3/rotation = Quaternion(-0.04147037, 0, 0, 0.9991398)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09989677, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.09989677, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.38086414, 0.92463106)
+bones/4/rotation = Quaternion(0, 0, -0.26784095, 0.9634632)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09989677, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.09989677, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.38086414, 0.92463106)
+bones/5/rotation = Quaternion(0, 0, 0.26784095, 0.9634632)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8196893e-09, 0.167, 0.026388777)
 bones/6/enabled = true
 bones/6/position = Vector3(1.8196893e-09, 0.167, 0.026388777)
-bones/6/rotation = Quaternion(0, -0.0006561349, 0, 0.9999999)
+bones/6/rotation = Quaternion(0, 0.04147037, 0, 0.9991398)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="body-mesh" type="MeshInstance3D" parent="Model/character-male-e/Skeleton3D"]
@@ -2922,10 +2923,6 @@ script = ExtResource("4_svriy")
 model_reference = NodePath("../../Model")
 metadata/_custom_type_script = "uid://cpvckx6tght8j"
 
-[node name="PlayerInputComponent" type="Node" parent="Components"]
-script = ExtResource("5_c51xo")
-metadata/_custom_type_script = "uid://bxuwgawcus7ah"
-
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_svriy")
 initial_state = NodePath("Idle")
@@ -2946,6 +2943,14 @@ metadata/_custom_type_script = "uid://bcrm7na1qxara"
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("10_e2ar7")
 metadata/_custom_type_script = "uid://bcrm7na1qxara"
+
+[node name="Light_Attack" type="Node" parent="StateMachine"]
+script = ExtResource("11_f4bib")
+metadata/_custom_type_script = "uid://bcrm7na1qxara"
+
+[node name="Heavy_Attack" type="Node" parent="StateMachine"]
+script = ExtResource("12_vqe8n")
+metadata/_custom_type_script = "uid://dxdtq3relf6sr"
 
 [node name="CurrentState" type="Label" parent="."]
 offset_right = 62.0

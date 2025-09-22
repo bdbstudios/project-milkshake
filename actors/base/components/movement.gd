@@ -2,11 +2,11 @@ class_name MovementComponent extends Node
 
 @export var walking_speed: float = 5.0
 
-@export var running_speed: float = 8.0
+@export var running_speed: float = 10.0
 
 @export var acceleration: float = 10.0
 
-@export var jump_force: float = 6.0
+@export var jump_force: float = 7.0
 
 @export var model_reference: Node3D
 
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		target_velocity.y -= gravity * delta
 	else:
 		jump_count = 0
-	
+
 	owner.velocity = owner.velocity.lerp(target_velocity, acceleration * delta)
 	owner.move_and_slide()
 	
@@ -52,26 +52,33 @@ func _physics_process(delta: float) -> void:
 		model_reference.rotation.y = lerp_angle(model_reference.rotation.y, movement_angle, model_rotation_speed * delta)
 
 
-func get_movement_state() -> String:
+func get_movement_type() -> String:
 	var horizontal_velocity = Vector2(owner.velocity.x, owner.velocity.z)
-	var speed = horizontal_velocity.length()
+	var horizontal_speed = horizontal_velocity.length()
 
-	if speed <= 0.2:
+	if not owner.is_on_floor():
+		return "jump"
+	elif horizontal_speed <= 0.2 and direction.length_squared() < 0.01:
 		return "idle"
-	elif speed <= walking_speed:
+	elif target_speed == walking_speed and horizontal_speed > 0.5:
 		return "walk"
-	else:
+	elif target_speed == running_speed and horizontal_speed > walking_speed + 0.5:
 		return "run"
+	else:
+		if horizontal_speed <= walking_speed:
+			return "idle" if horizontal_speed <= 0.2 else "walk"
+		else:
+			return "run"
 
-func _on_jump_input() -> void:
+func change_direction(new_direction: Vector3) -> void:
+	direction = new_direction
+
+func do_jump() -> void:
 	if owner.is_on_floor() or jump_count < max_air_jumps:
 		target_velocity.y = jump_force
 		jump_count += 1
 
-func _on_direction_change(new_direction: Vector3) -> void:
-	direction = new_direction
-
-func _on_speed_change(new_speed: MovementSpeed) -> void:
+func change_speed(new_speed: MovementSpeed) -> void:
 	match new_speed:
 		MovementSpeed.RUN:
 			target_speed = running_speed

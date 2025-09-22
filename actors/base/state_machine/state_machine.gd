@@ -24,6 +24,10 @@ func update(delta: float) -> void:
 func physics_update(delta: float) -> void:
 	if current_state:
 		current_state.physics_update(delta)
+		
+func handle_input(event: InputEvent) -> void:
+	if current_state:
+		current_state.handle_input(event)
 
 func change_state(new_state_name: String) -> void:
 	var new_state: State = states.get(new_state_name.to_lower())
