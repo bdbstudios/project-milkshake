@@ -11,23 +11,19 @@ config_version=5
 [application]
 
 config/name="Project Milkshake"
+config/description="A rogue-like videogame inspired by Rampage where the player gains points by causing destruction to the environment. Made using Godot."
+config/version="0.0.1"
 run/main_scene="uid://674i302jvx"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
-
-[autoload]
-
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+config/icon="uid://f1de0kj2rjcu"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=2
+window/size/resizable=false
 window/stretch/mode="viewport"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

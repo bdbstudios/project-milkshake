@@ -49,16 +49,9 @@ func disable_motion() -> void:
 func enable_motion() -> void:
 	motion_enabled = true
 
-func get_camera_forward() -> Vector3:
-	return yaw.global_transform.basis.z
-
-func get_camera_forward_horizontal() -> Vector3:
-	var forward = get_camera_forward()
-	forward.y = 0
-	return forward
-
 func face_camera_direction(delta: float) -> void:
-	var camera_forward = get_camera_forward_horizontal()
+	var camera_forward = yaw.global_transform.basis.z
+	camera_forward.y = 0
 
 	if camera_forward.length_squared() > 0.1:
 		var target_angle = atan2(camera_forward.x, camera_forward.z)
