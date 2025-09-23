@@ -3,4 +3,4 @@
 /android/
 
 # Builds folder (project export)
-.builds/
+/builds
