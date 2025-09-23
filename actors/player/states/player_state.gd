@@ -23,9 +23,9 @@ func physics_update(_delta: float) -> void:
 		player.movement_component.change_speed(MovementComponent.MovementSpeed.RUN)
 
 func handle_input(event: InputEvent) -> void:
-	if event.is_action_pressed("light_attack"):
-		state_machine.change_state("light_attack")
-	elif event.is_action_pressed("heavy_attack"):
-		state_machine.change_state("heavy_attack")
+	if event.is_action_pressed("primary_attack"):
+		state_machine.change_state("primary_attack")
+	elif event.is_action_pressed("secondary_attack"):
+		state_machine.change_state("secondary_attack")
 	elif event.is_action_pressed("jump"):
 		player.movement_component.do_jump()

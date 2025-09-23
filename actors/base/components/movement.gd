@@ -10,9 +10,9 @@ class_name MovementComponent extends Node
 
 @export var model_reference: Node3D
 
-@export var model_rotation_speed: float = 8.0
+@export var model_rotation_speed: float = 10.0
 
-@export var max_air_jumps: int = 1
+@export var max_air_jumps: int = 0
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -86,3 +86,7 @@ func change_speed(new_speed: MovementSpeed) -> void:
 			target_speed = walking_speed
 		_:
 			push_error("Unknown movement speed: ", new_speed)
+
+func stop_moving() -> void:
+	direction = Vector3.ZERO
+	target_velocity = Vector3.ZERO
