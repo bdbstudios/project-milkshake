@@ -4,7 +4,7 @@ var player: Player
 
 func enter() -> void:
 	player = character_body as Player
-	
+
 func physics_update(_delta: float) -> void:
 	var movement_type = player.movement_component.get_movement_type()
 	

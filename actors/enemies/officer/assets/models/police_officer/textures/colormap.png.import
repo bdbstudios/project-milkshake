@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dguctepdxp6c7"
-path.s3tc="res://.godot/imported/colormap.png-c8d93999c3230e37d5c189a2923b8b5b.s3tc.ctex"
+uid="uid://k1ct26ui7dds"
+path.s3tc="res://.godot/imported/colormap.png-c12425b335faf57d3776100b7b17c32c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://actors/player/assets/models/textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-c8d93999c3230e37d5c189a2923b8b5b.s3tc.ctex"]
+source_file="res://actors/enemies/officer/assets/models/police_officer/textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-c12425b335faf57d3776100b7b17c32c.s3tc.ctex"]
 
 [params]
 

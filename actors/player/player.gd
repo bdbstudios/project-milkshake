@@ -2,6 +2,9 @@ class_name Player extends CharacterBody3D
 
 @onready var movement_component: MovementComponent = $Components/MovementComponent
 
+@onready var hitbox_component: HitboxComponent = $Model/Hitbox
+@onready var hitbox_collision: CollisionShape3D = $Model/Hitbox/HitboxCollision
+
 @onready var state_machine: StateMachine = $StateMachine
 
 @onready var camera: Node3D = $Camera

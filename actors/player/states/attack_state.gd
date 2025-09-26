@@ -2,10 +2,11 @@ class_name AttackState extends PlayerState
 
 var attack_finished: bool = false
 var should_replay: bool = false
-	
+
 func enter() -> void:
 	super()
 	player.disable_motion()
+	player.hitbox_collision.disabled = false
 
 func physics_update(delta: float) -> void:
 	player.face_camera_direction(delta)
@@ -13,8 +14,10 @@ func physics_update(delta: float) -> void:
 	# TODO: Maybe validate the animation here? Or change depending on a timer instead?
 	if player.animation_playback.get_current_length() == player.animation_playback.get_current_play_position():
 		attack_finished = true
+		player.hitbox_collision.disabled = true
 	else:
 		attack_finished = false
+		player.hitbox_collision.disabled = false
 
 func finish_attack() -> void:
 	var movement_type = player.movement_component.get_movement_type()

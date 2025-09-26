@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://674i302jvx"]
+[gd_scene load_steps=8 format=3 uid="uid://674i302jvx"]
 
 [ext_resource type="Material" uid="uid://cwjxhkxd26fa6" path="res://assets/grid/dark/Material.tres" id="1_ufr6o"]
 [ext_resource type="Material" uid="uid://c85rgvewp38b" path="res://assets/grid/light/Material.tres" id="2_v2w6q"]
 [ext_resource type="PackedScene" uid="uid://b42wo4b8k4jk8" path="res://actors/player/Player.tscn" id="3_v2w6q"]
+[ext_resource type="PackedScene" uid="uid://dvnygw5mvl450" path="res://actors/enemies/officer/Officer.tscn" id="4_dwvyc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v2w6q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,6 +29,7 @@ shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="."]
 use_collision = true
+collision_mask = 0
 size = Vector3(200, 0.2, 200)
 material = ExtResource("1_ufr6o")
 
@@ -36,12 +38,14 @@ material = ExtResource("1_ufr6o")
 [node name="Wall1" type="CSGBox3D" parent="House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7, 2.5, 0)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 5, 24)
 material = ExtResource("2_v2w6q")
 
 [node name="Wall2" type="CSGBox3D" parent="House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 2.5, 0)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 5, 24)
 material = ExtResource("2_v2w6q")
 
@@ -54,12 +58,14 @@ size = Vector3(0.671021, 2.5, 2)
 [node name="Wall3" type="CSGBox3D" parent="House"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5, -12.2)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 5, 16)
 material = ExtResource("2_v2w6q")
 
 [node name="Wall4" type="CSGBox3D" parent="House"]
 transform = Transform3D(0.00256559, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.00256559, 0, 2.5, 12.2)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 5, 16)
 material = ExtResource("2_v2w6q")
 
@@ -87,20 +93,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1, 0, 5)
 [node name="Wall1" type="CSGBox3D" parent="House/Annex"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0500002, 1.6, -4.5)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 3.2, 8.5)
 material = ExtResource("2_v2w6q")
 
 [node name="Wall2" type="CSGBox3D" parent="House/Annex"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0500002, 1.6, 4.5)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 3.2, 8.5)
 material = ExtResource("2_v2w6q")
 
 [node name="Wall3" type="CSGBox3D" parent="House/Annex"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05, 1.6, 0)
 use_collision = true
+collision_mask = 0
 size = Vector3(0.5, 3.2, 8.5)
 material = ExtResource("2_v2w6q")
 
 [node name="Player" parent="." instance=ExtResource("3_v2w6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09999999, 0)
+
+[node name="Officer" parent="." instance=ExtResource("4_dwvyc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.1, 0, 3)
+
+[node name="Officer2" parent="." instance=ExtResource("4_dwvyc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 7)

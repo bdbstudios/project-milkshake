@@ -2,8 +2,8 @@ extends AttackState
 
 func enter() -> void:
 	super()
-	# TODO: maybe make player look at where camera is facing?
 	player.animation_playback.travel("Secondary_Attack")
+	player.hitbox_component.damage_amount = 100
 
 func update(delta: float) -> void:
 	super(delta)
