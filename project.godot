@@ -25,6 +25,22 @@ window/size/mode=2
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/voronoishatter/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://actors/": "red",
+"res://addons/": "orange",
+"res://assets/": "yellow",
+"res://builds/": "green",
+"res://ui/": "teal",
+"res://utils/": "blue",
+"res://world/": "purple"
+}
+
 [input]
 
 move_forward={
@@ -93,6 +109,7 @@ zoom_reset={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Projectile"
 3d_physics/layer_3="Collectibles"
+3d_physics/layer_4="Debris"
 3d_physics/layer_5="Player Physics"
 3d_physics/layer_6="Player Hurtbox"
 3d_physics/layer_7="Player Detection"

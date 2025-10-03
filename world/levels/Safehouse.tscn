@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://674i302jvx"]
+[gd_scene load_steps=10 format=3 uid="uid://674i302jvx"]
 
 [ext_resource type="Material" uid="uid://cwjxhkxd26fa6" path="res://assets/grid/dark/Material.tres" id="1_ufr6o"]
 [ext_resource type="Material" uid="uid://c85rgvewp38b" path="res://assets/grid/light/Material.tres" id="2_v2w6q"]
 [ext_resource type="PackedScene" uid="uid://b42wo4b8k4jk8" path="res://actors/player/Player.tscn" id="3_v2w6q"]
 [ext_resource type="PackedScene" uid="uid://dvnygw5mvl450" path="res://actors/enemies/officer/Officer.tscn" id="4_dwvyc"]
+[ext_resource type="PackedScene" uid="uid://hcke7iwc4ud" path="res://world/models/buildings/modular_building/GroundFloor.tscn" id="5_6r2s8"]
+[ext_resource type="PackedScene" uid="uid://dvlmhp0j30il7" path="res://world/models/buildings/modular_building/MiddleFloor.tscn" id="6_63dwt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v2w6q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -115,7 +117,18 @@ material = ExtResource("2_v2w6q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09999999, 0)
 
 [node name="Officer" parent="." instance=ExtResource("4_dwvyc")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.1, 0, 3)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.2557154, 0, 23.895376)
 
 [node name="Officer2" parent="." instance=ExtResource("4_dwvyc")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 7)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.2442846, 0, 23.895376)
+
+[node name="TestBuilding" type="Node3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 32.5)
+
+[node name="GroundFloor" parent="TestBuilding" instance=ExtResource("5_6r2s8")]
+
+[node name="SecondFloor" parent="TestBuilding" instance=ExtResource("6_63dwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="ThirdFloor" parent="TestBuilding" instance=ExtResource("6_63dwt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 20, 0)
