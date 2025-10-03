@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyp4h6ed6yuu6"
-path="res://.godot/imported/test_building.glb-032c8cacb9eb4bd6191f78951934149f.scn"
+uid="uid://7lmtd3gj5rey"
+path="res://.godot/imported/Modular Building.glb-361b9fefce858e94847f745193d19daf.scn"
 
 [deps]
 
-source_file="res://assets/buildings/test_building.glb"
-dest_files=["res://.godot/imported/test_building.glb-032c8cacb9eb4bd6191f78951934149f.scn"]
+source_file="res://world/models/buildings/modular_building/exports/Modular Building.glb"
+dest_files=["res://.godot/imported/Modular Building.glb-361b9fefce858e94847f745193d19daf.scn"]
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="Node3D"
+nodes/root_name="ModularBuilding"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

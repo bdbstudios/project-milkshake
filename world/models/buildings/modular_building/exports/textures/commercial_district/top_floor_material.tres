@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cmunv4tj365pj"]
+
+[ext_resource type="Texture2D" uid="uid://dtr3s20x7r3nj" path="res://world/models/buildings/modular_building/exports/textures/commercial_district/top_floor.png" id="1_35rka"]
+
+[resource]
+albedo_texture = ExtResource("1_35rka")
+texture_filter = 0

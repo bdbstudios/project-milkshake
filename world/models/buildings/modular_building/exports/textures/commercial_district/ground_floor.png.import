@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w37enha5tag"
-path="res://.godot/imported/test_building_0.png-bf6cd6d515a363d14db22e0389156f53.ctex"
+uid="uid://bavknk3g1d64r"
+path="res://.godot/imported/ground_floor.png-8908343a1c0056a7efe58b0eb39e58b8.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "2c9172af32d5b06e8b4e88e1eeb3d32a"
 }
 
 [deps]
 
-source_file="res://assets/buildings/test_building_0.png"
-dest_files=["res://.godot/imported/test_building_0.png-bf6cd6d515a363d14db22e0389156f53.ctex"]
+source_file="res://world/models/buildings/modular_building/exports/textures/commercial_district/ground_floor.png"
+dest_files=["res://.godot/imported/ground_floor.png-8908343a1c0056a7efe58b0eb39e58b8.ctex"]
 
 [params]
 

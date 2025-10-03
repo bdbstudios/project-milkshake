@@ -3,7 +3,7 @@ extends AttackState
 func enter() -> void:
 	super()
 	player.animation_playback.travel("Primary_Attack")
-	player.hitbox_component.damage_amount = 50
+	player.hitbox_component.damage_amount = 100
 
 func update(delta: float) -> void:
 	super(delta)
