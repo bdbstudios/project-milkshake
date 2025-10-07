@@ -1033,6 +1033,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_yix6c")
 
 [node name="Fractured_Mesh_2186977" type="Node3D" parent="VoronoiShatter"]
+visible = false
 script = ExtResource("5_yix6c")
 
 [node name="Rigid_FracturedPiece_RID(6268710926942432)" type="RigidBody3D" parent="VoronoiShatter/Fractured_Mesh_2186977"]

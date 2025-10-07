@@ -29,3 +29,5 @@ func handle_input(event: InputEvent) -> void:
 		state_machine.change_state("secondary_attack")
 	elif event.is_action_pressed("jump"):
 		player.movement_component.do_jump()
+	elif event.is_action_pressed("transform"):
+		state_machine.change_state("transform")

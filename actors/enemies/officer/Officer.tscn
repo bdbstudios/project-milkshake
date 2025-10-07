@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bv0hp0lwt22vs" path="res://actors/enemies/officer/officer.gd" id="1_1uwyv"]
 [ext_resource type="Texture2D" uid="uid://k1ct26ui7dds" path="res://actors/enemies/officer/assets/models/police_officer/textures/colormap.png" id="1_hmkli"]
 [ext_resource type="Script" uid="uid://dj23r8fni4lpv" path="res://utils/components/health.gd" id="2_s8pk7"]
-[ext_resource type="Script" uid="uid://cpvckx6tght8j" path="res://utils/components/movement.gd" id="3_8kuf4"]
+[ext_resource type="Script" uid="uid://cpvckx6tght8j" path="res://actors/components/movement.gd" id="3_8kuf4"]
 [ext_resource type="Script" uid="uid://xqsrvr0x45cs" path="res://utils/components/hurtbox.gd" id="4_8kuf4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_puvpf"]
@@ -2869,12 +2869,14 @@ script = ExtResource("1_1uwyv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_puvpf")
 
-[node name="Model" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Model" type="Node3D" parent="Pivot"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 
-[node name="character-male-c" type="Node3D" parent="Model"]
+[node name="character-male-c" type="Node3D" parent="Pivot/Model"]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Model/character-male-c"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Pivot/Model/character-male-c"]
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -2901,55 +2903,55 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4438228e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.4438228e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(-0.0072916686, 0, 0, 0.9999734)
+bones/3/rotation = Quaternion(0.0047886977, 0, 0, 0.99998856)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09989677, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.09989677, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.37494138, 0.9270485)
+bones/4/rotation = Quaternion(0, 0, -0.36937186, 0.9292817)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09989677, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.09989677, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.37494138, 0.9270485)
+bones/5/rotation = Quaternion(0, 0, 0.36937186, 0.9292817)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8196893e-09, 0.167, 0.026388777)
 bones/6/enabled = true
 bones/6/position = Vector3(1.8196893e-09, 0.167, 0.026388777)
-bones/6/rotation = Quaternion(0, 0.0072916686, 0, 0.9999734)
+bones/6/rotation = Quaternion(0, -0.0047886977, 0, 0.99998856)
 bones/6/scale = Vector3(1, 1, 1)
 
-[node name="body-mesh" type="MeshInstance3D" parent="Model/character-male-c/Skeleton3D"]
+[node name="body-mesh" type="MeshInstance3D" parent="Pivot/Model/character-male-c/Skeleton3D"]
 mesh = SubResource("ArrayMesh_re5ky")
 skin = SubResource("Skin_fysg8")
 
-[node name="head-mesh" type="MeshInstance3D" parent="Model/character-male-c/Skeleton3D"]
+[node name="head-mesh" type="MeshInstance3D" parent="Pivot/Model/character-male-c/Skeleton3D"]
 mesh = SubResource("ArrayMesh_vt1md")
 skin = SubResource("Skin_fysg8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Model/character-male-c"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_bmbsi")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Model"]
+[node name="AnimationTree" type="AnimationTree" parent="Pivot/Model"]
 tree_root = SubResource("AnimationNodeStateMachine_puvpf")
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../character-male-c/AnimationPlayer")
 
-[node name="Hurtbox" type="Area3D" parent="Model"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+[node name="Hurtbox" type="Area3D" parent="Pivot"]
 collision_layer = 512
 collision_mask = 128
 script = ExtResource("4_8kuf4")
 metadata/_custom_type_script = "uid://xqsrvr0x45cs"
 
-[node name="HurtboxCollision" type="CollisionShape3D" parent="Model/Hurtbox"]
+[node name="HurtboxCollision" type="CollisionShape3D" parent="Pivot/Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 shape = SubResource("CapsuleShape3D_8kuf4")
 
@@ -2959,9 +2961,9 @@ shape = SubResource("CapsuleShape3D_8kuf4")
 script = ExtResource("2_s8pk7")
 metadata/_custom_type_script = "uid://dj23r8fni4lpv"
 
-[node name="MovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("model_reference")]
+[node name="MovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("pivot_reference")]
 script = ExtResource("3_8kuf4")
 walking_speed = 4.0
 running_speed = 8.0
-model_reference = NodePath("../../Model")
+pivot_reference = NodePath("../../Pivot")
 metadata/_custom_type_script = "uid://cpvckx6tght8j"

@@ -67,8 +67,8 @@ func destroy_building() -> void:
 			var direction = (child.global_position).normalized()
 			child.apply_impulse(direction * 5 + Vector3.UP * 20 * 0.5)
 
-			#var timer = get_tree().create_timer(piece_lifetime)
-			#timer.timeout.connect(queue_free)
+			var timer = get_tree().create_timer(piece_lifetime)
+			timer.timeout.connect(queue_free)
 
 func propagate_destruction_above() -> void:
 	level_above_raycast.enabled = true

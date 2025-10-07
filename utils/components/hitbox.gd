@@ -2,6 +2,7 @@ class_name HitboxComponent extends Area3D
 
 # TODO: make this more modular, this shouldn't be part of the hitbox but the weapon used?
 # or maybe the implementation should be that hitbox is only applied to the weapon, not the actor?
+# what about the hurtbox? what would it do?
 @export var damage_amount: int = 10
 
 func _ready() -> void:
