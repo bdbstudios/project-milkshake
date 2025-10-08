@@ -10,7 +10,7 @@ func enter() -> void:
 
 func physics_update(delta: float) -> void:
 	player.face_camera_direction(delta)
-	
+
 	# TODO: Maybe validate the animation here? Or change depending on a timer instead?
 	if player.animation_playback.get_current_length() == player.animation_playback.get_current_play_position():
 		attack_finished = true

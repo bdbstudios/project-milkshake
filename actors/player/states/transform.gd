@@ -1,9 +1,12 @@
-extends PlayerState
+class_name TransformState extends PlayerState
+
+# TODO: maybe should make a new MonsterPlayer scene that would contain monster specific logic
+# should also make a BasePlayer scene that HumanPlayer and MonsterPlayer will inherit from
 
 func enter() -> void:
 	super()
 	player.disable_motion()
-	player.animation_playback.travel("Idle")
+	player.animation_component.play_idle()
 	player.transformation_component.transform()
 
 	# TODO: make an animation play for transformation and wait for it to finish instead of a timer

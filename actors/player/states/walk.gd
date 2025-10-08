@@ -1,5 +1,5 @@
-extends PlayerState
+class_name WalkState extends PlayerState
 
 func enter() -> void:
 	super()
-	player.animation_playback.travel("Walk")
+	player.animation_component.play_walk()

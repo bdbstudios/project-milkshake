@@ -12,8 +12,7 @@ class_name Player extends CharacterBody3D
 @onready var yaw: Node3D = $Camera/Yaw
 
 @onready var pivot: Node3D = $Pivot
-@onready var animation_tree: AnimationTree = $Pivot/Model/AnimationTree
-@onready var animation_playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+@onready var animation_component: AnimationComponent = $Components/AnimationComponent
 
 @onready var current_state_label: Label = $CurrentState
 

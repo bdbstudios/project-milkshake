@@ -6,7 +6,7 @@ class_name MovementComponent extends Node
 
 @export var acceleration: float = 10.0
 
-@export var jump_force: float = 7.0
+@export var jump_force: float = 8.0
 
 @export var pivot_reference: Node3D
 

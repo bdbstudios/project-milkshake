@@ -1,5 +1,5 @@
-extends PlayerState
+class_name IdleState extends PlayerState
 
 func enter() -> void:
 	super()
-	player.animation_playback.travel("Idle")
+	player.animation_component.play_idle()

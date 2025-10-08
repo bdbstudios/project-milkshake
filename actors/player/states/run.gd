@@ -1,5 +1,5 @@
-extends PlayerState
+class_name RunState extends PlayerState
 
 func enter() -> void:
 	super()
-	player.animation_playback.travel("Run")
+	player.animation_component.play_run()

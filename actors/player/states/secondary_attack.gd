@@ -1,8 +1,8 @@
-extends AttackState
+class_name SecondaryAttackState extends AttackState
 
 func enter() -> void:
 	super()
-	player.animation_playback.travel("Secondary_Attack")
+	#player.animation_playback.travel("Secondary_Attack")
 	player.hitbox_component.damage_amount = 100
 
 func update(delta: float) -> void:

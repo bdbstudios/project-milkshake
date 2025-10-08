@@ -1,8 +1,8 @@
-extends AttackState
+class_name PrimaryAttackState extends AttackState
 
 func enter() -> void:
 	super()
-	player.animation_playback.travel("Primary_Attack")
+	#player.animation_playback.travel("Primary_Attack")
 	player.hitbox_component.damage_amount = 100
 
 func update(delta: float) -> void:

@@ -9,8 +9,9 @@ extends Node3D
 @onready var CameraNode: Camera3D = $Yaw/Pitch/SpringArm3D/Camera3D
 
 @export_category("Camera Zoom Settings")
-@export var min_zoom_length: float = 2.0
-@export var max_zoom_length: float = 10.0
+@export var initial_zoom_length: float = 2.5
+@export var min_zoom_length: float = 1.0
+@export var max_zoom_length: float = 7.0
 @export var zoom_speed: float = 5.0
 @export var zoom_step: float = 1.0
 
@@ -83,4 +84,4 @@ func get_zoom_normalized() -> float:
 	return inverse_lerp(min_zoom_length, max_zoom_length, SpringArmNode.spring_length)
 
 func reset_zoom() -> void:
-	target_zoom_length = max_zoom_length / 2.0
+	target_zoom_length = initial_zoom_length
