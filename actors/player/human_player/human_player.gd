@@ -1,18 +1,18 @@
 class_name Player extends CharacterBody3D
 
 @onready var movement_component: MovementComponent = $Components/MovementComponent
-@onready var transformation_component: TransformationComponent = $Components/TransformationComponent
+#@onready var transformation_component: TransformationComponent = $Components/TransformationComponent
 
-@onready var hitbox_component: HitboxComponent = $Pivot/Hitbox
-@onready var hitbox_collision: CollisionShape3D = $Pivot/Hitbox/HitboxCollision
+@onready var hitbox_component: HitboxComponent = $Model/Hitbox
+@onready var hitbox_collision: CollisionShape3D = $Model/Hitbox/HitboxCollision
 
-@onready var state_machine: StateMachine = $StateMachine
+@onready var state_machine: PlayerStateMachine = $StateMachine
 
 @onready var camera: Node3D = $Camera
 @onready var yaw: Node3D = $Camera/Yaw
 
-@onready var pivot: Node3D = $Pivot
-@onready var animation_component: AnimationComponent = $Components/AnimationComponent
+@onready var model: Node3D = $Model
+@onready var animation_tree: AnimationTree = $Model/AnimationTree
 
 @onready var current_state_label: Label = $CurrentState
 
@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	state_machine.update(delta)
-	current_state_label.text = "STATE: " + state_machine.current_state.name.to_lower()
+	current_state_label.text = "STATE: " + state_machine.current_state.state_path
 
 	target_direction = Vector3(
 		Input.get_action_strength("move_left") - Input.get_action_strength("move_right"),
@@ -58,4 +58,4 @@ func face_camera_direction(delta: float) -> void:
 
 	if camera_forward.length_squared() > 0.1:
 		var target_angle = atan2(camera_forward.x, camera_forward.z)
-		pivot.rotation.y = lerp_angle(pivot.rotation.y, target_angle, movement_component.pivot_rotation_speed * delta)
+		model.rotation.y = lerp_angle(model.rotation.y, target_angle, movement_component.model_rotation_speed * delta)

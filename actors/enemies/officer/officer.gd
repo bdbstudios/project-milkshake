@@ -2,8 +2,8 @@ class_name EnemyOfficer extends CharacterBody3D
 
 @onready var health_component: HealthComponent = $Components/HealthComponent
 
-@onready var animation_tree: AnimationTree = $Pivot/Model/AnimationTree
-@onready var animation_player: AnimationPlayer = $"Pivot/Model/character-male-c/AnimationPlayer"
+@onready var animation_tree: AnimationTree = $Model/AnimationTree
+@onready var animation_player: AnimationPlayer = $"Model/character-male-c/AnimationPlayer"
 
 func _ready() -> void:
 	health_component.health_depleted.connect(_on_health_depleted)

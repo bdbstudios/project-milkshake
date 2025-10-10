@@ -8,9 +8,9 @@ class_name MovementComponent extends Node
 
 @export var jump_force: float = 8.0
 
-@export var pivot_reference: Node3D
+@export var model_reference: Node3D
 
-@export var pivot_rotation_speed: float = 10.0
+@export var model_rotation_speed: float = 10.0
 
 @export var max_air_jumps: int = 0
 
@@ -31,7 +31,7 @@ enum MovementSpeed {
 
 func _ready() -> void:
 	assert(owner is CharacterBody3D, "Owner is not of type CharacterBody3D")
-	assert(pivot_reference, "No pivot reference was assigned")
+	assert(model_reference, "No model reference was assigned")
 
 	target_speed = walking_speed
 
@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.length() > 0:
 		var movement_angle = atan2(direction.x, direction.z)
-		pivot_reference.rotation.y = lerp_angle(pivot_reference.rotation.y, movement_angle, pivot_rotation_speed * delta)
+		model_reference.rotation.y = lerp_angle(model_reference.rotation.y, movement_angle, model_rotation_speed * delta)
 
 
 func get_movement_type() -> String:
