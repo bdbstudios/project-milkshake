@@ -1,30 +1,39 @@
-class_name Player extends CharacterBody3D
+@abstract
+class_name PlayerBody extends CharacterBody3D
 
-@onready var movement_component: MovementComponent = $Components/MovementComponent
-#@onready var transformation_component: TransformationComponent = $Components/TransformationComponent
+@export var movement_component: MovementComponent
 
-@onready var hitbox_component: HitboxComponent = $Model/Hitbox
-@onready var hitbox_collision: CollisionShape3D = $Model/Hitbox/HitboxCollision
+@export var hitbox_component: HitboxComponent
+@export var hitbox_collision: CollisionShape3D
 
-@onready var state_machine: PlayerStateMachine = $StateMachine
+@export var state_machine: PlayerStateMachine
 
-@onready var camera: Node3D = $Camera
-@onready var yaw: Node3D = $Camera/Yaw
+@export var model: Node3D
+@export var animation_tree: AnimationTree
 
-@onready var model: Node3D = $Model
-@onready var animation_tree: AnimationTree = $Model/AnimationTree
-
-@onready var current_state_label: Label = $CurrentState
+@export var camera_height: float = 1.0
+@export var camera_zoom: float = 2.0
 
 var motion_enabled: bool = true
 var target_direction: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	state_machine.init(self)
+	validate_exports()
+
+func validate_exports() -> void:
+	assert(movement_component, "No movement component was provided")
+
+	assert(hitbox_component, "No hitbox component was provided")
+	assert(hitbox_collision, "No hitbox collision shape was provided")
+
+	assert(state_machine, "No state machine component was provided")
+
+	assert(model, "No model component was provided")
+	assert(animation_tree, "No animation tree component was provided")
 
 func _process(delta: float) -> void:
 	state_machine.update(delta)
-	current_state_label.text = "STATE: " + state_machine.current_state.state_path
 
 	target_direction = Vector3(
 		Input.get_action_strength("move_left") - Input.get_action_strength("move_right"),
@@ -36,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	state_machine.physics_update(delta)
 	
 	if motion_enabled:
-		target_direction = target_direction.rotated(Vector3.UP, yaw.rotation.y)
+		target_direction = target_direction.rotated(Vector3.UP, Global.active_camera.YawNode.rotation.y)
 	else:
 		target_direction = Vector3.ZERO
 
@@ -53,7 +62,7 @@ func enable_motion() -> void:
 	motion_enabled = true
 
 func face_camera_direction(delta: float) -> void:
-	var camera_forward = yaw.global_transform.basis.z
+	var camera_forward = Global.active_camera.YawNode.global_transform.basis.z
 	camera_forward.y = 0
 
 	if camera_forward.length_squared() > 0.1:

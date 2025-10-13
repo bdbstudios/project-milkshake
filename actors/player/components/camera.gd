@@ -1,7 +1,4 @@
-extends Node3D
-
-# TODO: refactor this controller (maybe put it into player script?)
-# TODO: add a global script to handle if input should be enabled or not
+class_name CameraComponent extends Node3D
 
 @onready var YawNode: Node3D = $Yaw
 @onready var PitchNode: Node3D = $Yaw/Pitch
@@ -9,8 +6,8 @@ extends Node3D
 @onready var CameraNode: Camera3D = $Yaw/Pitch/SpringArm3D/Camera3D
 
 @export_category("Camera Zoom Settings")
-@export var initial_zoom_length: float = 2.5
-@export var min_zoom_length: float = 1.0
+@export var initial_zoom_length: float = 2.0
+@export var min_zoom_length: float = 1.5
 @export var max_zoom_length: float = 7.0
 @export var zoom_speed: float = 5.0
 @export var zoom_step: float = 1.0

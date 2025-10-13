@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://i80aln66chbl"]
+
+[ext_resource type="Script" uid="uid://biqig081h81ts" path="res://actors/player/player.gd" id="1_e2ar7"]
+[ext_resource type="Script" uid="uid://0eiegr3haxqg" path="res://actors/player/components/transformation.gd" id="3_flecp"]
+[ext_resource type="Script" uid="uid://cw168botxwwxr" path="res://actors/player/components/camera.gd" id="4_flecp"]
+[ext_resource type="Script" uid="uid://dj23r8fni4lpv" path="res://utils/components/health.gd" id="6_hek8q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c51xo"]
+radius = 0.07
+
+[node name="Player" type="Node3D" node_paths=PackedStringArray("health_component", "transformation_component")]
+script = ExtResource("1_e2ar7")
+health_component = NodePath("Components/HealthComponent")
+transformation_component = NodePath("Components/TransformationComponent")
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("4_flecp")
+
+[node name="Yaw" type="Node3D" parent="Camera"]
+
+[node name="Pitch" type="Node3D" parent="Camera/Yaw"]
+transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera/Yaw/Pitch"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.8, 0.5999997, 0)
+shape = SubResource("SphereShape3D_c51xo")
+
+[node name="Camera3D" type="Camera3D" parent="Camera/Yaw/Pitch/SpringArm3D"]
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" type="Node" parent="Components"]
+script = ExtResource("6_hek8q")
+metadata/_custom_type_script = "uid://dj23r8fni4lpv"
+
+[node name="TransformationComponent" type="Node" parent="Components"]
+script = ExtResource("3_flecp")
+metadata/_custom_type_script = "uid://0eiegr3haxqg"

@@ -6,4 +6,4 @@ func _ready() -> void:
 
 func enter() -> void:
 	super()
-	player.hitbox_component.damage_amount = 100
+	player_body.hitbox_component.damage_amount = 100
