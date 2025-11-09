@@ -15,6 +15,8 @@ config/description="A rogue-like videogame inspired by Rampage where the player 
 config/version="0.0.1"
 run/main_scene="uid://674i302jvx"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.07683588, 0.0768358, 0.0768358, 1)
+boot_splash/show_image=false
 config/icon="uid://f1de0kj2rjcu"
 
 [autoload]
