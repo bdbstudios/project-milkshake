@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vkiex8hvs0ra"]
 
-[ext_resource type="Texture2D" uid="uid://l2l1wh565bdp" path="res://utils/images/godot_splashscreen.png" id="1_s4dtl"]
+[ext_resource type="Texture2D" uid="uid://cirwpvkceh0hf" path="res://utils/images/godot_logo.svg" id="1_s4dtl"]
 
 [node name="SplashScreenManager" type="Control"]
 layout_mode = 3
