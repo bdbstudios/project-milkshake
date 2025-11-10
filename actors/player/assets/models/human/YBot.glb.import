@@ -41,7 +41,7 @@ _subresources={
 "nodes": {
 "PATH:Armature/Skeleton3D": {
 "rest_pose/selected_animation": "Y Bot_1",
-"retarget/bone_map": Resource("uid://b7cb5rd2d2ut7", "res://actors/animations/humanoid/mixamo_bone_map.tres"),
+"retarget/bone_map": Resource("uid://b7cb5rd2d2ut7", "res://actors/animations/mixamo_bone_map.tres"),
 "retarget/bone_renamer/unique_node/skeleton_name": "Skeleton3D"
 }
 }
