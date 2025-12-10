@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vkiex8hvs0ra"]
+[gd_scene load_steps=3 format=3 uid="uid://vkiex8hvs0ra"]
 
-[ext_resource type="Texture2D" uid="uid://cirwpvkceh0hf" path="res://utils/images/godot_logo.svg" id="1_s4dtl"]
+[ext_resource type="Texture2D" uid="uid://cirwpvkceh0hf" path="res://assets/images/godot_logo.svg" id="1_s4dtl"]
+[ext_resource type="Script" uid="uid://byali7pqa4l5x" path="res://utils/globals/splash_screen_manager/splash_screen_manager.gd" id="1_vxlac"]
 
 [node name="SplashScreenManager" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vxlac")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

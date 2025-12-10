@@ -10,6 +10,7 @@ var current_gui_scene: Control
 
 func _ready() -> void:
 	Global.game_controller = self
+	current_gui_scene = $GUI/SplashScreenManager
 
 func change_gui_scene(scene_name: String, delete: bool = true, keep_running: bool = false) -> void:
 	if current_gui_scene != null:

@@ -13,11 +13,12 @@ config_version=5
 config/name="Project Milkshake"
 config/description="A rogue-like videogame inspired by Rampage where the player gains points by causing destruction to the environment. Made using Godot."
 config/version="0.0.1"
-run/main_scene="uid://674i302jvx"
+run/main_scene="uid://sl0bfpcexgst"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.07683588, 0.0768358, 0.0768358, 1)
-boot_splash/show_image=false
+boot_splash/image="uid://25obpfdvo2uu"
 config/icon="uid://f1de0kj2rjcu"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 

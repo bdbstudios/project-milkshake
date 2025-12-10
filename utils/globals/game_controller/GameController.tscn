@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7py3iyrltxja"]
+[gd_scene load_steps=3 format=3 uid="uid://c7py3iyrltxja"]
 
 [ext_resource type="Script" uid="uid://ctxo5g1td2sjp" path="res://utils/globals/game_controller/game_controller.gd" id="1_nmqyc"]
+[ext_resource type="PackedScene" uid="uid://vkiex8hvs0ra" path="res://utils/globals/splash_screen_manager/SplashScreenManager.tscn" id="2_1ws1k"]
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "world_2d", "gui")]
 script = ExtResource("1_nmqyc")
@@ -17,3 +18,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="SplashScreenManager" parent="GUI" instance=ExtResource("2_1ws1k")]
+layout_mode = 1
