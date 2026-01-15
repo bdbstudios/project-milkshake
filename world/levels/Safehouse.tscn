@@ -1,21 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://674i302jvx"]
+[gd_scene load_steps=7 format=3 uid="uid://674i302jvx"]
 
 [ext_resource type="Material" uid="uid://cwjxhkxd26fa6" path="res://assets/grid/dark/Material.tres" id="1_ufr6o"]
 [ext_resource type="Material" uid="uid://c85rgvewp38b" path="res://assets/grid/light/Material.tres" id="2_v2w6q"]
-[ext_resource type="PackedScene" uid="uid://hcke7iwc4ud" path="res://world/models/buildings/modular_building/GroundFloor.tscn" id="5_6r2s8"]
 [ext_resource type="PackedScene" uid="uid://i80aln66chbl" path="res://actors/player/Player.tscn" id="5_lp7yx"]
-[ext_resource type="PackedScene" uid="uid://dvlmhp0j30il7" path="res://world/models/buildings/modular_building/MiddleFloor.tscn" id="6_63dwt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v2w6q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_dwvyc"]
+[sub_resource type="Sky" id="Sky_v2w6q"]
 sky_material = SubResource("ProceduralSkyMaterial_v2w6q")
 
 [sub_resource type="Environment" id="Environment_lp7yx"]
 background_mode = 2
-sky = SubResource("Sky_dwvyc")
+sky = SubResource("Sky_v2w6q")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -111,16 +109,5 @@ use_collision = true
 collision_mask = 0
 size = Vector3(0.5, 3.2, 8.5)
 material = ExtResource("2_v2w6q")
-
-[node name="TestBuilding" type="Node3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 32.5)
-
-[node name="GroundFloor" parent="TestBuilding" instance=ExtResource("5_6r2s8")]
-
-[node name="SecondFloor" parent="TestBuilding" instance=ExtResource("6_63dwt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-
-[node name="ThirdFloor" parent="TestBuilding" instance=ExtResource("6_63dwt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 20, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_lp7yx")]

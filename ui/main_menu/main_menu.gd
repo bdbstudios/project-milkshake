@@ -12,7 +12,7 @@ func _ready() -> void:
 	play_button.grab_focus()
 
 func on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://world/levels/Safehouse.tscn")
+	get_tree().change_scene_to_file("res://world/levels/nexus_one/NexusOne.tscn")
 
 func on_settings_pressed() -> void:
 	print("Settings")
