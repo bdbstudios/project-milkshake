@@ -2,7 +2,7 @@ class_name FallState extends PlayerBaseState
 
 func enter() -> void:
 	super()
-	player_body.animation_tree.set("parameters/GroundedTransition/transition_request", "falling")
+	player_body.animation_tree.set("parameters/FallingTransition/transition_request", "falling")
 
 # Fall state has a different logic for changing states. Can only change if player_body.is_on_floor()
 func physics_update(_delta: float) -> void:

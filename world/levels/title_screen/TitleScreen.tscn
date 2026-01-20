@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://sl0bfpcexgst"]
+
+[ext_resource type="Script" uid="uid://bdp7etgucelkc" path="res://world/levels/title_screen/title_screen.gd" id="1_rrxrh"]
+[ext_resource type="Theme" uid="uid://c7towoqeuwdgw" path="res://ui/themes/default/Theme.tres" id="2_1sv0q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72vni"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_72vni"]
+font_size = 80
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rrxrh")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1sv0q")
+theme_override_styles/panel = SubResource("StyleBoxFlat_72vni")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26484376
+anchor_top = 0.12638889
+anchor_right = 0.73515624
+anchor_bottom = 0.24838889
+offset_bottom = 0.15999603
+grow_horizontal = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.26
+text = "Project Milkshake"
+label_settings = SubResource("LabelSettings_72vni")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40034375
+anchor_top = 0.41125
+anchor_right = 0.5996562
+anchor_bottom = 0.58875
+offset_left = -0.44000244
+offset_top = -0.1000061
+offset_right = 0.44000244
+offset_bottom = 0.099975586
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+text = "Play"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"

@@ -1,4 +1,4 @@
-class_name MainMenu extends Control
+class_name TitleScreen extends Control
 
 @onready var play_button: Button = $VBoxContainer/Play
 @onready var settings_button: Button = $VBoxContainer/Settings

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://i80aln66chbl"]
+[gd_scene load_steps=7 format=3 uid="uid://i80aln66chbl"]
 
 [ext_resource type="Script" uid="uid://biqig081h81ts" path="res://actors/player/player.gd" id="1_e2ar7"]
+[ext_resource type="PackedScene" uid="uid://o8t1ivsr8s1e" path="res://ui/pause_menu/PauseMenu.tscn" id="2_c51xo"]
 [ext_resource type="Script" uid="uid://0eiegr3haxqg" path="res://actors/player/components/transformation.gd" id="3_flecp"]
 [ext_resource type="Script" uid="uid://cw168botxwwxr" path="res://actors/player/components/camera.gd" id="4_flecp"]
 [ext_resource type="Script" uid="uid://dj23r8fni4lpv" path="res://utils/components/health.gd" id="6_hek8q"]
@@ -12,6 +13,18 @@ radius = 0.07
 script = ExtResource("1_e2ar7")
 health_component = NodePath("Components/HealthComponent")
 transformation_component = NodePath("Components/TransformationComponent")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_c51xo")]
+visible = false
+layout_mode = 1
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

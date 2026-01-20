@@ -1,21 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://sl0bfpcexgst"]
+[gd_scene load_steps=5 format=3 uid="uid://o8t1ivsr8s1e"]
 
-[ext_resource type="Script" uid="uid://bdp7etgucelkc" path="res://ui/main_menu/main_menu.gd" id="1_h7g2k"]
+[ext_resource type="Script" uid="uid://u4j2ssmelr6n" path="res://ui/pause_menu/pause_menu.gd" id="1_dyg54"]
+[ext_resource type="Theme" uid="uid://c7towoqeuwdgw" path="res://ui/themes/default/Theme.tres" id="1_k6boa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72vni"]
-bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyg54"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 0.3137255)
 
-[sub_resource type="LabelSettings" id="LabelSettings_72vni"]
-font_size = 64
+[sub_resource type="LabelSettings" id="LabelSettings_h8jb3"]
+font_size = 80
 
-[node name="MainMenu" type="Control"]
+[node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h7g2k")
+script = ExtResource("1_dyg54")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -24,7 +25,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_72vni")
+theme = ExtResource("1_k6boa")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dyg54")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -37,8 +39,8 @@ offset_bottom = 0.15999603
 grow_horizontal = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.26
-text = "Project Milkshake"
-label_settings = SubResource("LabelSettings_72vni")
+text = "Pause"
+label_settings = SubResource("LabelSettings_h8jb3")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -58,11 +60,11 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
-text = "Play"
+text = "Resume"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2

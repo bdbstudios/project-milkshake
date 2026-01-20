@@ -14,7 +14,11 @@ class_name PlayerBody extends CharacterBody3D
 @export var camera_height: float = 1.0
 @export var camera_zoom: float = 2.0
 
+@export var climb_check_up: RayCast3D
+@export var climb_check_down: RayCast3D
+
 var motion_enabled: bool = true
+var gravity_enabled: bool = true
 var target_direction: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
@@ -27,9 +31,12 @@ func validate_exports() -> void:
 	assert(hitbox_component, "No hitbox component was provided")
 	assert(hitbox_collision, "No hitbox collision shape was provided")
 
-	assert(state_machine, "No state machine component was provided")
+	assert(climb_check_up, "No climb check up component was provided")
+	assert(climb_check_down, "No climb check down component was provided")
 
 	assert(model, "No model component was provided")
+	assert(animation_tree, "No animation tree component was provided")
+	
 	assert(animation_tree, "No animation tree component was provided")
 
 func _process(delta: float) -> void:
@@ -60,6 +67,20 @@ func disable_motion() -> void:
 
 func enable_motion() -> void:
 	motion_enabled = true
+
+func enable_gravity() -> void:
+	gravity_enabled = true
+
+func disable_gravity() -> void:
+	gravity_enabled = false
+
+func enable_climb_checks() -> void:
+	climb_check_up.enabled = true
+	climb_check_down.enabled = true
+
+func disable_climb_checks() -> void:
+	climb_check_up.enabled = false
+	climb_check_down.enabled = false
 
 func face_camera_direction(delta: float) -> void:
 	var camera_forward = Global.active_camera.YawNode.global_transform.basis.z

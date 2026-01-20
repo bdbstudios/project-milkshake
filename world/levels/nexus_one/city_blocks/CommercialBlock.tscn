@@ -1,0 +1,243 @@
+[gd_scene load_steps=3 format=3 uid="uid://nhgeaeqi5qq3"]
+
+[ext_resource type="Material" uid="uid://cwjxhkxd26fa6" path="res://assets/grid/dark/Material.tres" id="1_4cowu"]
+[ext_resource type="Material" uid="uid://c85rgvewp38b" path="res://assets/grid/light/Material.tres" id="2_82c72"]
+
+[node name="CommercialBlock" type="Node3D"]
+
+[node name="Roads" type="Node3D" parent="."]
+
+[node name="Road1" type="CSGBox3D" parent="Roads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+size = Vector3(75, 0.1, 6)
+material = ExtResource("1_4cowu")
+
+[node name="Road2" type="CSGBox3D" parent="Roads"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.005, 0)
+size = Vector3(75, 0.1, 6)
+material = ExtResource("1_4cowu")
+
+[node name="Road4" type="CSGBox3D" parent="Roads"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34.5, 0.005, 0)
+size = Vector3(75, 0.1, 6)
+material = ExtResource("1_4cowu")
+
+[node name="Road5" type="CSGBox3D" parent="Roads"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.5, 0.005, 0)
+size = Vector3(75, 0.1, 6)
+material = ExtResource("1_4cowu")
+
+[node name="Road3" type="CSGBox3D" parent="Roads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+size = Vector3(75, 0.1, 6)
+material = ExtResource("1_4cowu")
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="Building1" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 7.5, 2.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(9, 15, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building2" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 9, 23)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(6, 18, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building11" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 8, 32)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 16, 7)
+material = ExtResource("2_82c72")
+
+[node name="Building3" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5, 12)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(5, 10, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building4" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 10, 8.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(9, 20, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building12" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.5, 25)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(13, 9, 19)
+material = ExtResource("2_82c72")
+
+[node name="Building5" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 10, 1.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(9, 20, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building6" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 7, -11.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 14, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building7" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 8, -19)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 16, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building8" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.5, 3.5, -28)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 7, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building14" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -25.833334, 10, -7.333334)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(9, 20, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building15" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -23.833334, 4.5, -23.833332)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(13, 9, 19)
+material = ExtResource("2_82c72")
+
+[node name="Building16" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -25.833332, 10, -0.33333397)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(9, 20, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building17" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26.333332, 7, 12.666666)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 14, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building18" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26.33333, 8, 20.166666)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 16, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building19" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -27.33333, 3.5, 29.166668)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 7, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building9" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5, 10.5, -24)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 21, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building10" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 6.5, -9.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(12, 13, 14)
+material = ExtResource("2_82c72")
+
+[node name="Building13" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.133331, 7.5, 5.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(9, 15, 6)
+material = ExtResource("2_82c72")
+
+[node name="Building20" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 23.63333, 9, -15)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(6, 18, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building21" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.63333, 8, -24)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 16, 7)
+material = ExtResource("2_82c72")
+
+[node name="Building25" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.63333, 5.5, -32)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(6, 11, 7)
+material = ExtResource("2_82c72")
+
+[node name="Building26" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.633329, 4.5, -32)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(14, 9, 7)
+material = ExtResource("2_82c72")
+
+[node name="Building22" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24.133331, 5, -4)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(5, 10, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building23" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 24.633333, 10.5, 32)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(8, 21, 5)
+material = ExtResource("2_82c72")
+
+[node name="Building24" type="CSGBox3D" parent="Buildings"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.233334, 6.5, 17.5)
+use_collision = true
+collision_layer = 4097
+collision_mask = 0
+size = Vector3(12, 13, 14)
+material = ExtResource("2_82c72")

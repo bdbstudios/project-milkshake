@@ -52,6 +52,11 @@ folder_colors={
 "res://world/": "purple"
 }
 
+[gui]
+
+theme/custom="uid://c7towoqeuwdgw"
+theme/custom_font="uid://dlxj6wgiwx6t8"
+
 [input]
 
 move_forward={
@@ -134,8 +139,9 @@ transform={
 3d_physics/layer_10="Enemy Hurtbox"
 3d_physics/layer_11="Enemy Detection"
 3d_physics/layer_12="Enemy Hitbox"
+3d_physics/layer_13="Climbable"
 
 [physics]
 
 3d/physics_engine="Jolt Physics"
-3d/default_gravity=20.0
+3d/default_gravity=15.0

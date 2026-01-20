@@ -39,35 +39,3 @@ func instantiate_new_body(player_body: PackedScene) -> void:
 		Global.active_camera.reset_zoom()
 
 	current_body = new_body
-
-# TODO: figure out how to make this work? or add it to player script?
-
-#
-#@export var first_model: PackedScene
-#@export var second_model: PackedScene
-#
-#@onready var current_model: PackedScene = first_model
-#
-### "res://utils/effects/small_explosion/SmallExplosion.tscn"
-#const SMALL_EXPLOSION = preload("uid://ghn41tfsioqa")
-#
-#func _ready() -> void:
-	#assert(first_model, "No first model was provided")
-	#assert(second_model, "No second model was provided")
-#
-#func transform() -> void:
-	#var transformation_effect = SMALL_EXPLOSION.instantiate()
-	#owner.add_child(transformation_effect)
-	#transformation_effect.position = first_model.position
-	#transformation_effect.trigger()
-#
-	#if current_model == first_model:
-		#current_model = second_model
-		#first_model.visible = false
-		#second_model.visible = true
-		#owner.scale = Vector3(10, 10, 10)
-	#elif current_model == second_model:
-		#current_model = first_model
-		#first_model.visible = true
-		#second_model.visible = false
-		#owner.scale = Vector3(1, 1, 1)

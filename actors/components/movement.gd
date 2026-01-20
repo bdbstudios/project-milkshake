@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	target_velocity.x = target_speed * direction.normalized().x
 	target_velocity.z = target_speed * direction.normalized().z
 	
-	if not owner.is_on_floor():
+	if not owner.is_on_floor() and owner.gravity_enabled:
 		target_velocity.y -= gravity * delta
 	else:
 		jump_count = 0

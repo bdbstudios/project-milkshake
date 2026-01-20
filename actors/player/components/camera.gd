@@ -42,12 +42,6 @@ func _input(event: InputEvent) -> void:
 			yaw += -event.relative.x * yaw_sensitivity
 			pitch += event.relative.y * pitch_sensitivity
 
-	if event.is_action_pressed("pause_menu"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			
 	if event.is_action_pressed("zoom_in"):
 		zoom_in()
 	elif event.is_action_pressed("zoom_out"):

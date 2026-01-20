@@ -8,7 +8,7 @@ class_name Player extends Node3D
 func _ready() -> void:
 	assert(health_component, "No health component was provided")
 	assert(transformation_component, "No transformation component was provided")
-	
+
 	Global.player = self
 	Global.active_camera = camera
 
