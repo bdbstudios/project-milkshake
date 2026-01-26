@@ -14,8 +14,9 @@ class_name PlayerBody extends CharacterBody3D
 @export var camera_height: float = 1.0
 @export var camera_zoom: float = 2.0
 
-@export var climb_check_up: RayCast3D
-@export var climb_check_down: RayCast3D
+@export var upper_climb_check: RayCast3D
+@export var lower_climb_check: RayCast3D
+@export var downward_climb_check: RayCast3D
 
 var motion_enabled: bool = true
 var gravity_enabled: bool = true
@@ -31,8 +32,9 @@ func validate_exports() -> void:
 	assert(hitbox_component, "No hitbox component was provided")
 	assert(hitbox_collision, "No hitbox collision shape was provided")
 
-	assert(climb_check_up, "No climb check up component was provided")
-	assert(climb_check_down, "No climb check down component was provided")
+	assert(upper_climb_check, "No upper climb check component was provided")
+	assert(lower_climb_check, "No lower climb check component was provided")
+	assert(downward_climb_check, "No downward climb check component was provided")
 
 	assert(model, "No model component was provided")
 	assert(animation_tree, "No animation tree component was provided")
@@ -75,12 +77,18 @@ func disable_gravity() -> void:
 	gravity_enabled = false
 
 func enable_climb_checks() -> void:
-	climb_check_up.enabled = true
-	climb_check_down.enabled = true
+	upper_climb_check.enabled = true
+	lower_climb_check.enabled = true
 
 func disable_climb_checks() -> void:
-	climb_check_up.enabled = false
-	climb_check_down.enabled = false
+	upper_climb_check.enabled = false
+	lower_climb_check.enabled = false
+	
+func enable_ground_checks() -> void:
+	downward_climb_check.enabled = true
+
+func disable_ground_checks() -> void:
+	downward_climb_check.enabled = false
 
 func face_camera_direction(delta: float) -> void:
 	var camera_forward = Global.active_camera.YawNode.global_transform.basis.z

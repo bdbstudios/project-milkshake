@@ -6,3 +6,7 @@ func enter() -> void:
 	player_body.animation_tree.set("parameters/MovementTransition/transition_request", "run")
 	# TODO: Implement "run_backwards" animation with -1.0 on blend position
 	player_body.animation_tree.set("parameters/RunBlend/blend_position", 1.0)
+
+func physics_update(delta: float) -> void:
+	super(delta)
+	check_for_climbing()

@@ -22,8 +22,20 @@ func physics_update(_delta: float) -> void:
 	elif Input.is_action_pressed("run"):
 		player_body.movement_component.change_speed(MovementComponent.MovementSpeed.RUN)
 
-	if player_body.climb_check_up.is_colliding() and player_body.climb_check_down.is_colliding():
-		state_machine.change_state("movement/climb")
+# FIXME: when trying to climb using "move_left" or "move_right" it doesn't work.'
+# Only really works with "move_forward"
+func check_for_climbing() -> void:
+	if player_body.upper_climb_check.is_colliding() and player_body.lower_climb_check.is_colliding():
+		var direction_to_climbable = (player_body.upper_climb_check.get_collision_point() - player_body.position).normalized()
+
+		var target_direction = Vector3(
+			Input.get_action_strength("move_left") - Input.get_action_strength("move_right"),
+			0,
+			Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
+		)
+
+		if target_direction.dot(direction_to_climbable) < -0.1:
+			state_machine.change_state("movement/climb")
 
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_attack"):
